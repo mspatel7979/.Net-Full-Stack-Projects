@@ -1,0 +1,45 @@
+<div style="top: 2%;" class="container split1 d-flex flex-column">
+    <!-- Account Section -->
+    <div class="wallet">
+        <div class="card">
+            <p class="text-dark">My Wallet</p>
+            <div class="card-bottom pt-3 px-3 mb-2">
+                <div class="d-flex flex-row justify-content-between text-align-center">
+                    <div class="d-flex flex-column"><span>Balance amount</span>
+                        <p><span class="text-white">{{_wallet | currency}}</span></p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card actions disappear">
+        <p class="text-dark" style="margin-left: 6%;">Actions</p>
+        <div class="card-new">
+            <ul style="list-style: none;">
+                <li><a routerLink="/SendAndRequest">New transaction</a></li>
+                <li><a routerLink="Transactions">View Transactions</a></li>
+                <li><a routerLink="Profile">Change personal details</a></li>
+                <li><a routerLink="/AddPayment" href="#">Add New Payment Method</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container split2 d-flex flex-row p-12">
+    <div class="card transaction-history-div">
+        <a routerLink="Transactions" class="text-dark" style="margin-bottom: 15px; margin-left: 3%;">
+            <h3>Transaction History</h3>
+        </a>
+        <section>
+            <details *ngFor="let Transaction of Transactions">
+                <summary>Date: {{Transaction.createdAt | date: 'shortDate'}}&emsp;Amount: ${{Transaction.amount}}
+                </summary>
+                <p>Recipient: {{Transaction.recipientEmail}}</p>
+                <p>Sender: {{Transaction.senderEmail}}</p>
+                <p>Description: {{Transaction.description}}</p>
+            </details>
+        </section>
+    </div>
+</div>

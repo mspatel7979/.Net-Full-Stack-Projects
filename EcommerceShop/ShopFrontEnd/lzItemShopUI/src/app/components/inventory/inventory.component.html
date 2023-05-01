@@ -1,0 +1,33 @@
+<div id="item-inventory">
+
+    <h2>Inventory</h2>
+    <div id="item-inventory-list">
+
+        <ng-container *ngIf="inventory.length > 0; else empty">
+            <div *ngFor="let item of inventory">
+
+                <details>
+                    <summary (click)="getItemImage(item.name)"><span style="text-transform: capitalize;">{{item.name}}</span></summary>
+                    <div>
+                        <div class="grid cost-value">
+                            <div><span><p>Cost: {{item.price}}</p></span></div>
+                            <div><span><p>Attack: {{item.powerIncrease}}</p></span></div>
+                        </div>
+                        
+                        <img [src]="XapiRoot + item.name + imgRoot"/>
+                        <p class="item-desc">Description: {{item.description}}</p>
+                    </div>
+                </details>
+
+            </div>
+        </ng-container>
+        
+        <ng-template #empty>
+            <div>
+                <p>Nothing to show here!</p>
+            </div>
+        </ng-template>
+
+    </div>
+
+</div>

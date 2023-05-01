@@ -1,0 +1,180 @@
+.subtitle-money{
+    font-style: normal;
+    font-weight: 500;
+    text-align: left;
+    margin-top: 15px;
+    color: #25282C;
+}
+
+h1 {
+    text-align: center;
+    /* margin-top: 20px; */
+}
+
+.card {
+    padding: 20px 8%;
+    max-width: 1088;
+}
+
+row d-flex justify-content-center{
+    margin-left: 150px;
+}
+
+div .cardMT:hover{
+    background-color: #FECE22;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input{
+    width: 300px;
+    border-style: hidden; 
+    font-size: 40px;
+    color: black;
+    text-align: center; 
+}
+
+.no-outline:focus{
+    outline: none;
+}
+
+button{
+    width: 157px;
+    height: 83px;
+    left: 292px;
+    top: 408px;
+
+    background: #FFFFFF;
+    border: 1px solid #DDDDDD;
+    border-radius: 14px;
+
+    filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 31px;
+    text-align: center;
+    letter-spacing: 0.02em;
+
+    color: #25282C;
+}
+
+.yellow-button{
+    width: 239px;
+    height: 56px;
+    left: 337px;
+    top: 595px;
+
+    background: #FECE22;
+    border-radius: 12px;
+    border: #FECE22;
+    text-align: center;
+    color: #262626;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 21px;
+}
+
+.withBut:focus{
+    border-color: #FECE22;
+}
+.withBut:hover{
+    border-color: #FECE22;
+    background-color: #FECE22;
+    border-radius: 15px;
+}
+
+div .bcard:focus {
+    border-color: #FECE22;
+    background-color: #FECE22;
+    border-radius: 5px;
+}
+
+
+.bcard:hover{
+    background-color: #FECE22;
+    border-radius: 5px;
+}
+
+div .bacct:focus {
+    border-color: #FECE22;
+    background-color: #FECE22;
+    border-radius: 5px;
+}
+
+
+.bacct:hover{
+    background-color: #FECE22;
+    border-radius: 5px;
+}
+
+.amtbtn:hover{
+    background-color: #FECE22;
+    border-radius: 15px;
+}
+
+.alert {
+    padding: 20px;
+    background-color: #c2918e;
+    color: white;
+    margin-bottom: 15px;
+    width: 320px;
+}
+
+.success {
+    padding: 20px;
+    background-color: green;
+    color: white;
+    margin-bottom: 15px;
+    width: 320px;
+}
+  
+ /* The close button */
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+  
+/* When moving the mouse over the close button */
+.closebtn:hover {
+    color: black;
+}
+
+
+.backbtn {
+    margin-left: 15px;
+    color: black;
+    font-weight: bold;
+    float: left;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-right: 100%;
+}
+
+.backbtn:hover{
+    color:#FECE22;
+}
+
+
+
+.amtbtn {
+    margin: 5px 5%;
+}
+
+.amtList {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.custom-amt-div {
+    font-size: 24px;
+    padding-top: 1.8%;
+}

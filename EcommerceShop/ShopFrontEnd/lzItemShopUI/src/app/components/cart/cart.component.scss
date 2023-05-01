@@ -1,0 +1,67 @@
+#item-cart-list {
+    max-height: 600px;
+    max-width: 500px;
+    min-width: 500px;
+}
+
+ng-container div {
+    overflow-y: scroll;
+}
+
+#item-cart {
+    padding: 40px 50px;
+    background-color: #282b2ebd;
+    position: fixed;
+
+    top: 5%;
+    margin: 0 33%;
+    min-width: 500px;
+}
+
+#exit {
+    position: fixed;
+    right: 36%;
+    top: 8%;
+    text-align: center;
+    min-width: 5px;
+    max-width: 5px;
+
+    min-height: 5px;
+    max-height: 5px;
+
+    background-color: red;
+    outline: red;
+
+    font-size: 15px;
+
+    line-height: 5px;
+
+    padding: .95% .95%;
+    padding-right: 1.1%;
+    padding-left: .6%;
+}
+
+// div > details {
+//     margin: 0px 100px;
+//     margin-top: 15px;
+// }
+
+#item-cart-list img {
+    max-height: 300px;
+    max-width: 300px;
+}
+
+.item-desc {
+    font-size: 16px;
+}
+
+.removeItem {
+    max-width: 30px;
+    max-height: 30px;
+    min-height: 30px;
+    border-radius: 50%;
+    background-color: red;
+    position: fixed;
+    padding: 8px 8px;
+    line-height: 5px;
+}

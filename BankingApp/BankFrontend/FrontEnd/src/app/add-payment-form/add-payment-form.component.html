@@ -1,0 +1,87 @@
+<div class="container py-5">
+  
+    <div class="row">
+      <div class="col-lg-7 mx-auto">
+        <div class="bg-white rounded-lg shadow-sm p-5">
+          <!-- Credit card form tabs -->
+          <ul role="tablist" class="nav bg-light nav-pills rounded-pill nav-fill mb-3">
+            <li class="nav-item">
+              <a data-toggle="pill" (click)="toggleMode('credit')" class="nav-link rounded-pill pointer" [ngClass] = "mode === 'credit' ? 'active' : ''">
+              Credit Card
+              </a>
+            </li>
+            <li class="nav-item">
+              <a data-toggle="pill" (click)="toggleMode('bank')" class="nav-link rounded-pill pointer" [ngClass] = "mode === 'bank' ? 'active' : ''">
+                Bank Account
+              </a>
+            </li>
+          </ul>
+          <!-- End -->
+  
+  
+          <!-- Credit card form content -->
+          <div class="tab-content">
+  
+            <!-- credit card info-->
+            <div id="nav-tab-card" class="tab-pane fade" [ngClass]="mode === 'credit' ? 'show active' : ''">
+              <form role="form" #cardForm="ngForm" name="cardForm" (ngSubmit)="confirm(cardForm)">
+                <div class="form-group">
+                  <label for="username">Full name (on the card)</label>
+                  <input type="text" name="username" placeholder="Jason Doe" required class="form-control">
+                </div>
+                <div class="form-group">
+                  <label for="cardNumber">Card number</label>
+                  <div class="input-group">
+                    <input type="tel" inputmode="numeric" [(ngModel)]="cardnum" name="cardNumber" pattern="[0-9\s]{16}" maxlength="16" placeholder="Your card number" class="form-control" required>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-8">
+                    <div class="form-group">
+                      <label><span class="hidden-xs">Expiration</span></label>
+                      <div class="input-group">
+                        <input type="month" [(ngModel)]="expiryDate" name="expDate" min="2023-05" placeholder="MM/YY" class="form-control" required>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group mb-4">
+                      <label title="Three-digits code on the back of your card">CVV
+                                              </label>
+                      <input type="tel" inputmode="numeric" [(ngModel)]="cardcvv" name="cardCvv" pattern="[0-9\s]{3,4}" maxlength="4" placeholder="CVV" required class="form-control" required>
+                    </div>
+                  </div>
+  
+  
+  
+                </div>
+                <button type="submit" [disabled]="!cardForm.valid" class="subscribe btn btn-primary btn-block rounded-pill shadow-sm"> Confirm  </button>
+              </form>
+            </div>
+            <!-- End -->
+  
+            <!-- Bank Account Information-->
+            <div id="nav-tab-bank" class="tab-pane fade" [ngClass]="mode === 'bank' ? 'show active' : ''">
+                <form role="form" #accountForm="ngForm" name="accountForm" (ngSubmit)="confirm(accountForm)">
+                    <div class="form-group">
+                <p class="text-muted">Enter Valid Bank Account Number and Routing Number.</p>
+              <h6>Bank account details</h6>
+              <dl>
+                <label for="accNumber">Account Number:</label>
+                <input type="tel" inputmode="numeric" [(ngModel)]="AccModel.AccountNumber" pattern="[0-9\s]{5,17}" maxlength="17" class="form-control" placeholder="Your Account Number" id="accNumber" name="accNumber" required>
+              </dl>
+              <dl>
+                <label for="routeNumber">Routing Number:</label>
+                <input type="tel" inputmode="numeric" [(ngModel)]="AccModel.RoutingNumber" pattern="[0-9\s]{9}" maxlength="9" class="form-control" placeholder="Your Routing Number" id="routeNumber" name="routeNumber" required>
+              </dl>
+              <button type="submit" [disabled]="!accountForm.valid" class="subscribe btn btn-primary btn-block rounded-pill shadow-sm"> Confirm  </button>
+            </div>
+        </form>
+            <!-- End -->
+          </div>
+          <!-- End -->
+  
+        </div>
+      </div>
+    </div>
+  </div>

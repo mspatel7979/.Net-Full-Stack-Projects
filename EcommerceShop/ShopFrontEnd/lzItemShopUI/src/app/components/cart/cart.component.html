@@ -1,0 +1,34 @@
+<ng-container *ngIf="cache.viewCart">
+    <div id="item-cart">
+
+        <h2>Shopping Cart</h2>
+        <div id="item-cart-list">
+            <button id="exit" (click)="exitCart()">X</button>
+                
+                <ng-container *ngIf="cache.Cart.length > 0; else empty">
+
+                    <div *ngFor="let item of cache.Cart">
+                        <details>
+                            <summary (click)="getItemImage(item.name)"><button class="removeItem" (click)="removeItem(item.productID)">--</button><span style="text-transform: capitalize;">{{item.name}}</span> (Price: {{item.price}} rupees)</summary>
+                            <div>
+                                <p>Attack: {{item.powerIncrease}}</p>
+
+                                <img [src]="XapiRoot + item.name + imgRoot"/>
+                                <p class="item-desc">Description: {{item.description}}</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <button (click)="checkout()">Checkout</button>
+                </ng-container>
+
+                <ng-template #empty>
+                    <div>
+                        <p>Add items from the item shop to get started!</p>
+                    </div>
+                </ng-template>
+            
+            </div>
+            
+    </div>
+</ng-container>

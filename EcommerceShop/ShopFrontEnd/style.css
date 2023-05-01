@@ -1,0 +1,159 @@
+/* header {
+    background-color: rgb(15, 185, 236);
+    height: 85px;
+    width: 100%;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    text-align: center;
+} */
+
+body {
+    margin-top: 100px;
+    text-align: center;
+}
+
+#navbar {
+    background-color: rgb(15, 185, 236);
+    height: 85px;
+    width: 100%;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    text-align: center;
+}
+
+#navlist {
+    list-style-type: none;
+}
+
+#navlist li {
+    display: inline-block;
+    border: 1px solid;
+    padding: 15px 25px;
+    font-size: 20px;
+    margin: auto 3%;
+    border-color:  rgb(15, 185, 236);
+}
+
+#navlist li:hover {
+    background-color: white;
+    border-color: white;
+    color: rgb(0, 96, 126);
+    border-radius: 20%;
+}
+
+#navlist li a:hover {
+    cursor: pointer;
+}
+
+button {
+    cursor: pointer;
+}
+
+.developers {
+    display: inline-block;
+    padding: 10px 20px;
+}
+
+.developers button:active {
+    transform: translateY(3px);
+    transform: translateX(-2px);
+    box-shadow: 0 5px #666;
+
+}
+
+.devbtn {
+    height: 5em;
+    border-radius: 20%;
+    border-color: #77797a;
+    border-width: thin;
+}
+
+#sonya {
+    background-color: rgb(223, 55, 78);
+}
+
+#sonya:hover {
+    background-color: white;
+    border-color: rgb(223, 55, 78);
+    color: rgb(223, 55, 78);
+}
+
+#meet {
+    background-color: rgb(12, 145, 12);
+}
+
+#meet:hover {
+    background-color: white;
+    border-color: rgb(12, 145, 12);
+    color: rgb(12, 145, 12)
+}
+
+#nick {
+    background-color: #607D8B;
+}
+
+#nick:hover {
+    background-color: white;
+    border-color: #607D8B;
+    color: #607D8B;
+}
+
+.desc {
+    text-align: center;
+    margin: 20px 0px;
+    font-size: 16px;
+}
+
+.aboutBlock {
+    text-align: center;
+}
+
+.appContainer {
+    width: 100%;
+    text-align: center;
+}
+
+.appContainer #getitemsdiv {
+    width: 100%;
+}
+
+.appContainer #iteminfo {
+    width: 100%;
+}
+
+.appContainer button {
+    margin: 10px 5%;
+}
+
+.appContainer form {
+    margin-left: 40px;
+}
+
+.appContainer .items {
+    border: 1px solid;
+    border-radius: 5%;
+    align-content: center;
+    text-align: center;
+    margin: 20px 0px;
+    max-width: 700px;
+    margin-left: 40px;
+}
+
+.appContainer .items h3 {
+    text-transform: capitalize;
+}
+
+.appContainer .items p {
+    padding: 5px 25%;
+    text-align: center;
+}
+
+.appContainer .items img {
+    padding-bottom: 20px;
+}
+
+#itemInfo { 
+    margin: 0 25%;
+}

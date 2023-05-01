@@ -1,0 +1,33 @@
+#char-img {
+    margin-bottom: 100px;
+    text-align: center;
+}
+
+#char-img button {
+    background-color: transparent;
+    border-color: transparent;
+    border-radius: 50%;
+}
+
+#char-img button:active {
+    max-width: 95%;
+    margin-bottom: 5.8%;
+    transform: translate(15px, 5px);
+    border-color: transparent;
+}
+
+#char-img button:focus {
+    outline: none;
+}
+
+#rupees {
+    max-height: 80px;
+    // max-width: 20px;
+}
+
+#char-img #toggleChar {
+    border-radius: 0%;
+    max-height: 95%;
+    max-width: 95%;
+    transform: translate(0px, 0px);
+}

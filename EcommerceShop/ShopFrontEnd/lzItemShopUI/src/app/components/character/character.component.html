@@ -1,0 +1,26 @@
+<div>
+    <div id="char-img">
+        <div>
+            <span>
+                <img id="rupees" src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/854871cc-dca1-4f59-b4e9-8a8c697d0dd2/dd5c6pr-12487907-a611-43f1-b1f4-899dbe659064.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzg1NDg3MWNjLWRjYTEtNGY1OS1iNGU5LThhOGM2OTdkMGRkMlwvZGQ1YzZwci0xMjQ4NzkwNy1hNjExLTQzZjEtYjFmNC04OTlkYmU2NTkwNjQuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.yu3c_oyoeD6hvx-v0nIPV3sC2lQL-ZrYRZAdUONiKSE"/>
+                <p>${{user.coinBank}}</p>
+            </span>    
+        </div>
+
+        <!-- <p>Click your character below to generate money!</p> -->
+        <button id="charBtn" (click)="moneyButton()">
+            <ng-container *ngIf="!isZelda; else zelda">
+                <img src="https://i.pinimg.com/originals/12/af/f4/12aff4ef860ccc2f2beb4715cfd9c1ae.gif"/>
+            </ng-container>
+            <ng-template #zelda>
+                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/b269c80f-3857-47f7-a98e-60beacda8c1e/d5ohpu2-b0dfca9b-d012-467a-8b9f-be837ad28062.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2IyNjljODBmLTM4NTctNDdmNy1hOThlLTYwYmVhY2RhOGMxZVwvZDVvaHB1Mi1iMGRmY2E5Yi1kMDEyLTQ2N2EtOGI5Zi1iZTgzN2FkMjgwNjIuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.UzQlEIyWKH--KHK66_-1p89hSr_AwOanKBsoHaFgUyU"/>
+            </ng-template>
+        </button>
+        <button (click)="toggleChar()" id="toggleChar">Toggle Idol</button>
+    </div>
+</div>
+
+<!-- 
+link character:   https://i.pinimg.com/originals/12/af/f4/12aff4ef860ccc2f2beb4715cfd9c1ae.gif
+zelda character:  https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/b269c80f-3857-47f7-a98e-60beacda8c1e/d5ohpu2-b0dfca9b-d012-467a-8b9f-be837ad28062.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2IyNjljODBmLTM4NTctNDdmNy1hOThlLTYwYmVhY2RhOGMxZVwvZDVvaHB1Mi1iMGRmY2E5Yi1kMDEyLTQ2N2EtOGI5Zi1iZTgzN2FkMjgwNjIuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.UzQlEIyWKH--KHK66_-1p89hSr_AwOanKBsoHaFgUyU
+rupee:            https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/854871cc-dca1-4f59-b4e9-8a8c697d0dd2/dd5c6pr-12487907-a611-43f1-b1f4-899dbe659064.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzg1NDg3MWNjLWRjYTEtNGY1OS1iNGU5LThhOGM2OTdkMGRkMlwvZGQ1YzZwci0xMjQ4NzkwNy1hNjExLTQzZjEtYjFmNC04OTlkYmU2NTkwNjQuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.yu3c_oyoeD6hvx-v0nIPV3sC2lQL-ZrYRZAdUONiKSE-->

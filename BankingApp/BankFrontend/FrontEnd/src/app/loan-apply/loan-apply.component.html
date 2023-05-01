@@ -1,0 +1,167 @@
+<div>
+  <ng-container *ngIf="existingLoan.id >= 0" style="align-items: center">
+    <div class="row" id="payLoanDiv">
+      <div class="row">
+        <h1>Remaining Loan: {{(existingLoan.amount - existingLoan.amountPaid) | number:'1.0-2'}}</h1>
+        <p>Monthly Payment Due On: {{existingLoan.loanPaid | date: 'shortDate'}}</p>
+      </div>
+      <form>
+        <div class="col"><span>
+            <label for="monthlyAmountButton">Monthly bill</label>
+            <input type="radio" [checked]="monthlyAmountButton" name="monthlyAmountButton"
+              (click)="toggleMonthlyBill()" />
+          </span></div>
+        <div class="col"><span>
+            <label for="userAmountButton">Pay to Principle:</label>
+            <input type="radio" [checked]="customAmountButton" name="userAmountButton" value="Enter Amount"
+              (click)="toggleCustomBill()">
+          </span></div>
+        <div class="col"><span>
+            <label for="fullAmountButton">Pay full</label>
+            <input type="radio" [checked]="fullAmountButton" name="fullAmountButton" value="Pay full amount"
+              (click)="toggleFullBill()">
+          </span>
+        </div>
+        <br />
+        <ng-container *ngIf="monthlyAmountButton">
+          <div>
+            <form [formGroup]="payLoanForm">
+              <button (click)="payLoan(existingLoan.monthlyPay)">Pay Monthly Bill of
+                {{existingLoan.monthlyPay}}</button>
+            </form>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="customAmountButton">
+          <div>
+            <form [formGroup]="payLoanForm">
+              <label for="customAmount">Enter amount: </label>
+              <input name="customAmount" type="number" formControlName="payAmount"
+                style="margin-bottom: 15px; margin-top :0;" />
+              <button type="submit" (click)="payCustomLoan()">Pay Custom Amount</button>
+            </form>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="fullAmountButton">
+          <div style="width: 80%; justify-content: center;">
+            <button (click)="payFullLoan()">Pay Full Bill</button>
+          </div>
+        </ng-container>
+
+      </form>
+    </div>
+  </ng-container>
+
+  <div class="row">
+    <div class="login-root split1 left col-sm" style="margin: 20px 20px">
+      <div class="box-root flex-flex flex-direction--column" style="min-height: 100vh;flex-grow: 1;">
+        <div class="box-root padding-top--24 flex-flex flex-direction--column" style="flex-grow: 1; z-index: 9;">
+          <div class="box-root padding-bottom--24 flex-flex flex-justifyContent--center">
+            <h2>Loan Application</h2>
+          </div>
+          <div class="formbg-outer">
+            <div class="formbg">
+              <div class="formbg-inner padding-horizontal--48">
+                <form id="loan-apply" (input)="onLoanFormSubmit($event)" [formGroup]="loanForm">
+                  <div class="field padding-bottom--24">
+                    <label for="ammount">Loan amount (USD)</label>
+                    <input type="number" name="amount" formControlName="amount" required>
+                  </div>
+                  <div class="field padding-bottom--24">
+                    <label for="period">Loan term in months</label>
+                    <input type="number" id="loanTerm" name="period" formControlName="period" (keyup)="Validate()"
+                      (change)="Validate()" required max="60">
+                  </div>
+                  <div class="field padding-bottom--24">
+                    <input type="submit" name="submit" (click)="createSchedule()" (click)="toggle()">
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="login-root split2 right col-sm">
+      <div class="box-root flex-flex flex-direction--column" style="min-height: 100vh;flex-grow: 1;">
+        <div class="box-root flex-flex flex-direction--column" style="flex-grow: 1; z-index: 9;">
+          <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
+            <h2>Bank Offer</h2>
+          </div>
+          <div class="formbg-outer">
+            <div class="formbg">
+              <div *ngIf="!showCalculation" class="formbg-inner padding-horizontal--48">
+                <p>Wizard bank loan offer is a financial product offered by bank to businesses in need of funds. This
+                  offer provides an opportunity for borrowers to access money to finance various projects and
+                  activities, such
+                  as buying an assets, funding a startup, or expanding an existing business. Bank loan offers come with
+                  different terms and conditions, which can vary depending on the borrower's creditworthiness, income,
+                  and the amount requested. Loans are usually subject to interest charges and fees that borrowers must
+                  pay back over a specified period. Our loan offer can be an excellent way to access the capital you
+                  need to achieve your financial goals.</p>
+              </div>
+              <div *ngIf="showCalculation" class="formbg-inner padding-horizontal--48">
+                <div class="field padding-bottom--24">
+                  <p>Interest rate:
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{interest}}%
+                  </p>
+                  <p>Amount:
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${{amount}}
+                  </p>
+                  <p>Monthly payments: ${{payment}}</p>
+                  <p>Business Type: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{business_type}}
+                  </p>
+                </div>
+                <div class="field padding-bottom--24" *ngIf="!existingLoan.amount">
+                  <button type="submit" name="accept" (click)="acceptLoan()" style="border: none">Accept Loan</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="pdf" class="row" style="width:100%" *ngIf="showCalculation">
+    <div>
+      <div class="box-root flex-flex flex-direction--column" style="min-height: 100vh;flex-grow: 1; width: 100%">
+        <div class="box-root padding-top--24 flex-flex flex-direction--column"
+          style="flex-grow: 1; z-index: 9; width: 100%;">
+          <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center"
+            style="width: 100%">
+            <h2>Repayment Schedule</h2>
+          </div>
+          <div class="formbg-outer" style="width: 100%">
+            <div class="formbg" style="width: 100%;">
+              <table *ngIf="schedule.length > 0" style="width: 100%;">
+                <thead>
+                  <th style="text-align: center">Payment Date</th>
+                  <th style="text-align: center">Payment</th>
+                  <th style="text-align: center">Principal</th>
+                  <th style="text-align: center">Interest</th>
+                  <th style="text-align: center">Total Interest</th>
+                  <th style="text-align: center">Balance</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let i of schedule">
+                    <td style="text-align: center">{{i.date | date: 'shortDate'}}</td>
+                    <td style="text-align: center">{{i.payment}}</td>
+                    <td style="text-align: center">{{i.principal}}</td>
+                    <td style="text-align: center">{{i.interest}}</td>
+                    <td style="text-align: center">{{i.totalInterest}}</td>
+                    <td style="text-align: center">{{i.balance}}</td>
+                  </tr>
+                </tbody>
+              </table>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="field button1" (click)="exportAsPDF()" *ngIf="showCalculation" style="border: none">Download the
+    schedule</button>
+</div>

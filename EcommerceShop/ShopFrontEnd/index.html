@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        About us
+    </title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+
+<nav id="navbar">
+    <ul id="navlist">
+        <li><a href="pages/aboutus.html">About Us</a></li>
+        <li><a>Login</a></li>
+        <li><a>Sign up</a></li>
+    </ul>
+</nav>
+
+<body>
+    <div class="container appContainer divider 1g">
+        <div id="getitemsdiv">
+            <button onclick="getAll()">View all</button>
+            <button onclick="getAllTreasure()">Get all treasures</button>
+            <button onclick="getAllEquip()">Get all equipment</button>
+            <button onclick="getAllMats()">Get all materials</button>
+        </div><br/>
+        <div>
+            <form onsubmit="getItem(document.getElementById('itemEntry').value); return false">
+                <label for="itemEntry">Enter item name or ID</label>
+                <input type="text" id="itemEntry">
+                <input type="submit" />
+            </form>
+            <br/><br/>
+        </div>
+        
+        <div id="itemInfo">
+
+        </div>
+    </div>
+
+    <script src="fetch.js"></script>
+</body>
+
+</html>

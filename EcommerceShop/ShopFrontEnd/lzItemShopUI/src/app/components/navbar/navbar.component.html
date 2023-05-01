@@ -1,0 +1,19 @@
+<ng-container *ngIf="loggedIn == true; else unauthorized">
+<nav>
+    <ul id="brand-name">
+      <li><strong>Link and Zelda's Shop</strong></li>
+    </ul>
+    <ul id="account-actions">
+      <li><button id="cart" (click)="toggleCart()">Cart</button></li>
+      <li><button (click)="logOut()" id="logout">Log out</button></li>
+    </ul>
+</nav>
+</ng-container>
+
+<ng-template #unauthorized>
+  <nav>
+    <ul id="brand-name">
+      <li><strong>Link and Zelda's Shop</strong></li>
+    </ul>
+  </nav>
+</ng-template>

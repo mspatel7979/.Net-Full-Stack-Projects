@@ -1,0 +1,39 @@
+.pointer{
+  cursor: pointer;
+}
+
+.pointer.nav-link {
+  color: black;
+}
+
+.pointer.nav-link.active {
+  background-color: #FECE22;
+  color: black;
+}
+
+table button {
+  color: black;
+  border-radius: 5px;
+}
+
+table .rounded-pill {
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.411);
+  border-color: #FECE22;
+}
+
+table .rounded-pill:focus {
+  border-left-width: 7px;
+  border-color: #FECE22;
+}
+
+table .rounded-pill:active {
+  color: black;
+}
+
+form button {
+  background-color: #FECE22;
+  color: black;
+  border-color: #FECE22;
+  filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+}

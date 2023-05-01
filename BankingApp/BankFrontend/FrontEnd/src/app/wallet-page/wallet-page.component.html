@@ -1,0 +1,45 @@
+<div class="container d-flex">
+
+  <div class="flex-row flex-md-row bg-white rounded border shadow-sm" style="align-items: center;">
+    <div class="flex-column flex-md-column">
+
+      <div class="row d-flex">
+        <h2 style="font-size: 40px;">{{_amount | currency}}</h2>
+        <!-- <h2>$100</h2> -->
+        <p style="font-size: 20px;">Wallet Balance Available</p>
+      </div>
+
+      <div class="flex-row d-flex action-buttons-div">
+        <div class="flex-column">
+          <button class="yellow-button action-btn" (click)="linkCardorAcct()" id="linkButton"> Link card or bank
+          </button>
+        </div>
+
+        <div class="flex-column d-flex">
+          <button class="yellow-button action-btn" (click)="transferMoney()" id="transferButton"> Transfer Money
+          </button>
+        </div>
+      </div>
+
+      <div class="d-flex flex-column" *ngFor="let bank of bankList">
+        <div class="cards d-flex flex-row">
+          <div class="d-flex flex-column">
+            <h6 class="mb-0"> Bank Credit Union </h6>
+            <p> Checking {{bank.acctNum | cardTransform }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex flex-column" *ngFor="let card of cardList">
+        <div class="cards d-flex flex-row">
+          <div class="d-flex flex-column">
+            <h6 class="mb-0"> Bank Card {{card.cardNumber | cardTransform }} </h6>
+            <p> {{ card.expDate | date: 'MM/YY' }} </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

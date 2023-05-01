@@ -1,0 +1,48 @@
+#item-inventory {
+    max-width: 500px;
+    max-height: 800px;
+    overflow-y: scroll;
+    // overflow-x: hidden;
+}
+
+#item-inventory-list img {
+    max-height: 300px;
+}
+
+h2 {
+    margin: 20px 120px;
+    border-radius: 8%;
+    background-color: rgba(97, 97, 97, 0.733);
+    font-size: 24px;
+    padding: 5px 0px;
+}
+
+div > details {
+    margin: 0px 100px;
+    margin-top: 15px;
+}
+
+#item-inventory-list {
+    border-width: 4px;
+    padding-top: 20px;
+}
+
+#item-inventory-list img {
+    max-height: 300px;
+}
+
+.item-desc {
+    font-size: 16px;
+}
+
+#item-inventory summary {
+    font-size: 20px;
+}
+
+#item-inventory details summary, p {
+    color: black;
+}
+
+.cost-value p {
+    font-size: 18px;
+}

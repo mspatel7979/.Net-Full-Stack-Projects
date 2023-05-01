@@ -1,0 +1,110 @@
+<section id="subNav">
+  <table class="table">
+    <tbody>
+      <tr style="border: transparent;">
+        <td> <button class="yellow-btn" (click)="send()"> Send </button></td>
+        <td><button class="yellow-btn" (click)="request()"> Request </button></td>
+        <td> <button class="yellow-btn" (click)="viewRequests()"> Pending</button> </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="container">
+  <div class="d-flex flex-column flex-sm-column flex-md-row cards-div">
+    <section id="sendMoney" *ngIf="payDisplay" class="card p-2 flex-column flex-md-column">
+      <h1>Send Money</h1>
+
+      <p>Please enter your desired person's email</p>
+      <form [formGroup]="transferForm" (ngSubmit)="onSubmit()">
+        <label>
+          Recipient:
+          <label class="required">Email</label>
+          <!-- <div>
+            <input type="emailt" formControlName="email" placeholder="foo@bar.com" required class="form-control" [matAutocomplete]="auto" id="userEmails" list="dymEmailList">
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let u of filteredUsers | async" [value]="u">
+                {{user}}
+              </mat-option>
+            </mat-autocomplete>
+          </div> -->
+          <input type="email" formControlName="email" placeholder="foo@bar.com" required class="form-control">
+          <label class="required">Amount</label>
+          <input type="number" formControlName="amount" placeholder="$100" required class="form-control">
+          <label class="required">Description</label>
+          <input type="text" formControlName="description" placeholder="Ex: Thx for dinner!" required class="form-control" ngModel maxlength="150">
+        </label>
+        <br><br>
+        <button class="yellow-btn" type="submit" [disabled]="transferForm.invalid">Transfer</button>
+      </form>
+    </section>
+
+    <section id="requestMoney" *ngIf="requestDisplay" class="card flex-column p-2 flex-md-column">
+      <h1>Request Money</h1>
+      <p>Please enter your desired person's email</p>
+      <form [formGroup]="requestForm" (ngSubmit)="onRequest()">
+        <label class="required">Recipient: Email</label>
+        <input type="email" formControlName="remail" placeholder="foo@bar.com" required class="form-control">
+        <label class="required">Amount</label>
+        <input type="number" formControlName="ramount" placeholder="$100" required class="form-control">
+        <label class="required">Description</label>
+        <input type="text" formControlName="rdescription" placeholder="Request description" required class="form-control" ngModel maxlength="150">
+        <br>
+        <button type="submit" class="yellow-btn" [disabled]="requestForm.invalid">Request</button>
+        <br>
+      </form>
+    </section>
+
+    <section id="payRequestS" *ngIf="payRequestD" class="card flex-row p-2 flex-sm-row flex-md-column">
+      <h1>Pay Request</h1>
+      <p>Please enter your desired person's email</p>
+      <form [formGroup]="transferForm">
+        <label>
+          Recipient:
+          <label class="required">Email</label>
+          <input id="semail" type="email" formControlName="email" placeholder="foo@bar.com" required class="form-control" >
+          <label class="required">Amount</label>
+          <input id="samount" type="number" formControlName="amount" placeholder="$100" required class="form-control" >
+        </label>
+        <br><br>
+        <button id="pay-req-btn" type="submit" class="yellow-btn" (click)="pay()">Transfer</button>
+      </form>
+    </section>
+    
+    
+  </div>
+</div>
+
+
+
+<section id="pendingRequests" *ngIf="viewRequestsDisplay">
+  <div class="transac-table">
+    <table class="table">
+        <thead>
+            <tr style="border-bottom: black">
+                <th scope="col">Recipient</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Date</th>
+                <th scope="col"> Remaining Balance</th>
+            </tr>
+        </thead>
+
+        <tbody style="border: transparent">
+            <ng-container *ngIf="Requests.length > 0">
+                <tr *ngFor="let transac of Requests">
+                    <td *ngIf="transac.recipientEmail != undefined; else default">
+                        {{transac.recipientEmail}}
+                    </td>
+                    <ng-template #default>
+                        <td>You</td>
+                    </ng-template>
+                    <td>${{transac.amount}}</td>
+                    <td>{{transac.createdAt | date: 'shortDate'}}</td>
+                    <td>${{transac.ramount}}</td>
+                    <td><button class="yellow-btn" (click)="payRequest(transac)"> Pay </button></td>
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+</div>
+</section>

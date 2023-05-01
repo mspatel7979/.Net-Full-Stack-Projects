@@ -1,0 +1,13 @@
+<div>
+
+    <form [formGroup]="userForm">
+        <label for="username">Username: </label>
+        <input type="text" name="username" formControlName="username">
+
+        <label for="password">Password: </label>
+        <input type="password" name="password" formControlName="password">
+        
+        <input type="submit" role="button" value="Login" (click)="onLogin($event)">
+        <input type="submit" role="button" value="Register" (click)="onRegister($event)">
+    </form>
+</div>

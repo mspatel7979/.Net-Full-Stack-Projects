@@ -1,0 +1,61 @@
+<!-- Section: Design Block -->
+<section class="background-radial-gradient overflow-hidden">
+    <style>
+        .background-radial-gradient {
+            background-color: black;
+            background-image: url('../../assets/Gringotts_Wizarding_Bank_-_Concept_Art.jpg');
+            background-size: cover;
+            background-position: center;
+
+            -webkit-filter: blur(0.25px);
+            /* Safari 6.0 - 9.0 */
+            filter: blur(0.25px);
+            filter: brightness(90%);
+
+        }
+
+        .content-style {
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+    </style>
+
+    <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+        <div class="content-style">
+            <div class="row gx-lg-5 align-items-center mb-5">
+                <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
+                    <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%);margin-left: 10%;">
+                        The Galleon Guardian <br />
+                        <span style="color: hsl(218, 81%, 75%)">It's Money: not Magic</span>
+                    </h1>
+                    <p class="mb-4 opacity-70" style="color: hsl(218, 81%, 85%);margin-left: 10%;">
+                        <br />
+                        Implemented by Gringotts (seen in picture)
+                        <br />
+                        Transfer money so quick, it seems like magic! With support for business operations and for
+                        personal transfers, Knuts and Bolts is the go-to application for all financial needs
+
+                    </p>
+                </div>
+
+                <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+                    <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
+                    <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+
+                    <button type="submit" class="btn btn-primary btn-block mb-4"
+                        style="font-size: larger; font-weight:bolder; padding: 5%; margin-right: 15%; padding: 3%; float: right; width: 40%; border: 0px ; background-color: #bfc1c2; color:black"
+                        (click)=" login()">
+                        Personal Account
+                    </button>
+                    <br />
+                    <button type="submit" class="btn btn-primary btn-block mb-4" (click)="businessLogin()"
+                        style="font-size: larger; font-weight:bolder; margin-bottom: 5%; padding:3%; margin-right: 15%; float: right; width: 40%; border: 0px ; background-color: #bfc1c2; color:black">
+                        Business Account
+                    </button>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Section: Design Block -->

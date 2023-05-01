@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "../../../../.."
+		},
+		{
+			"name": "Wizarding-Bank-Front",
+			"path": "../../../.."
+		},
+		{
+			"name": "Wizarding-Bank-Back",
+			"path": "../../../../../Wizarding-Bank-Back"
+		}
+	],
+	"settings": {}
+}

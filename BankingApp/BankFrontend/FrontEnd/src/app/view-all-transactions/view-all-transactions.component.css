@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+body {
+    background-color: #D6D6DE;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.minus {
+    color: red;
+}
+
+.plus {
+    color: green;
+}
+
+/* @media screen and (max-width: 700px) {
+    .disappear {
+        display: none;
+    }
+} */
+
+.transac-table {
+    margin: 2% 4%;
+    padding: 20px 20px;
+}
+
+.transac-description {
+    max-width: 100px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.transac-description:hover {
+    cursor: pointer;
+}
+
+#transact-details-div {
+    position: fixed;
+    z-index: 1;
+    top: 100px;
+    left: 30%;
+    right: 30%;
+    bottom: 0%;
+    background-color: rgb(255, 255, 255);
+    height: fit-content;
+    min-height: 25%;
+    width: 30%;
+    padding: 50px 6%;
+}
+
+#exit-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+#exit-btn:active {
+    border-color: rgba(0, 0, 0, 0.582);
+    border-style: none;
+    border-right: ridge;
+    border-bottom: ridge;
+}

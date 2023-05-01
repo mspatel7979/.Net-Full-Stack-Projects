@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>About Us</title>
+        <link rel="stylesheet" href="../style.css">
+        <nav id="navbar">
+            <ul id="navlist">
+                <li><a href="../index.html">Home</a></li>
+                <li><a>Login</a></li>
+                <li><a>Sign up</a></li>
+            </ul>
+        </nav>
+    </head>
+    
+    <body>
+        <div class="container aboutBlock">
+            <div class="row">
+                <div class="developers col">
+                    <button id = "sonya" class="devbtn" onclick="aboutMe(event)">Sonya Wong</button>
+                </div>
+    
+                <div class="developers col">
+                    <button id = "nick" class="devbtn" onclick="aboutMe(event)">Nicholas Wentzel</button>
+                </div>
+    
+                <div class="developers col">
+                    <button id = "meet" class="devbtn" onclick="aboutMe(event)">Meet Patel</button>
+                </div>
+            </div>
+            <br/><br/>
+            <div class="row">
+                <div class="description">
+                    <div class="desc">
+                        <text id = "description1"></text>
+                    </div>
+                    <div class="desc">
+                        <text id = "description2"></text>
+                    </div>
+                    <div class="desc">
+                        <text id = "description3"></text>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        
+        <!-- script is for implementing javascript -->
+        <script>
+            function aboutMe(event) {
+                var description = event.target.id
+                if(description == "sonya") {
+                    document.getElementById("description1").textContent = "1. Like to play sports"
+                    document.getElementById("description2").textContent = "2. My favorite game is Tetris"
+                    document.getElementById("description3").textContent = "3. Japanese food is my favorite cuisine"
+                }
+                else if(description == "nick") {
+                    document.getElementById("description1").textContent = "1. I have built audio synthesizer modules from scratch."
+                    document.getElementById("description2").textContent = "2. I bake a pretty good loaf of sourdough."
+                    document.getElementById("description3").textContent = "3. I love to help people realize their goals."
+                }
+                else if(description == "meet") {
+                    document.getElementById("description1").textContent = "1. Likes to play basketball"
+                    document.getElementById("description2").textContent = "2. Likes to play video games"
+                    document.getElementById("description3").textContent = "3. Likes to read books"
+                }
+            }
+        </script>
+
+    </body>
+</html>

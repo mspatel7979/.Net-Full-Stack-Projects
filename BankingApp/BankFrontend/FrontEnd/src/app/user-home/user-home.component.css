@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+.user-home-component {
+    width: 100%;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    min-width: 300px;
+    width: fit-content;
+    padding: 20px 5%;
+}
+
+.fa-ellipsis-v {
+    font-size: 10px;
+    color: #C2C2C4;
+    margin-top: 6px;
+    cursor: pointer;
+}
+
+.text-dark {
+    font-weight: bold;
+    margin-top: 8px;
+    font-size: 20px;
+    letter-spacing: 0.5px;
+}
+
+.card-bottom {
+    background: #3E454D;
+    border-radius: 6px;
+}
+
+.flex-column {
+    color: #adb5bd;
+    font-size: 13px;
+}
+
+.flex-column p {
+    letter-spacing: 1px;
+    font-size: 18px;
+}
+
+.btn-secondary {
+    height: 40px !important;
+    margin-top: 3px;
+}
+
+.btn-secondary:focus {
+    box-shadow: inset;
+}
+
+.card-new {
+    background: white;
+    border-radius: 6px;
+    font-size: medium;
+}
+
+.split1 {
+    height: 85%;
+    width: fit-content;
+    position: fixed;
+    z-index: 1;
+    margin-top: 70px;
+    overflow-x: visible;
+    margin-left: 4%;
+}
+
+.split1 .card {
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+.split2 {
+    height: fit-content;
+    position: fixed;
+    z-index: 1;
+    overflow-x: visible;
+    justify-content: center;
+    margin-left: 35%;
+    margin-top: 70px;
+    margin-bottom: 2%;
+    width: 100%;
+    max-width: 50%;    
+}
+
+/* Control the left side */
+.left {
+    left: 0;
+    background-color: transparent;
+}
+
+/* Control the right side */
+.right {
+    right: 0;
+    background-color: transparent;
+}
+
+.minus {
+    color: red;
+}
+
+.plus {
+    color: green;
+}
+
+@media screen and (max-width: 1000px) {
+    .disappear {
+        display: none;
+    }
+    .container {
+        position: relative;
+        flex-direction: column;
+        justify-content: left;
+        min-width: 70%;
+        max-width: 70%;
+        min-height: 100%;
+        margin-left: 18%;
+        margin-right: 20%;
+        width: fit-content;
+    }
+
+    .split2 {
+        min-width: 80%;
+    }
+
+    .transaction-history-div {
+        height: fit-content;
+        /* min-width: 100%; */
+        width: 100%;
+    }
+
+    .wallet {
+        max-width: 70%;
+    }
+
+    .wallet .flex-column {
+        min-width: 100%;
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+section {
+    width: 100%;
+}
+
+details {
+    margin-bottom: 10px;
+    margin-left: 5%;
+}
+
+details summary {
+    margin-bottom: 6px;
+    width: 100%;
+}
+
+details p {
+    margin: 0 0;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.transaction-history-div {
+    width: 70%;
+    min-width: 50%;
+}
+
+.wallet {
+    max-width: 80%;
+}
+
+.actions {
+    max-width: 80%;
+}
+
+.wallet p {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 80%;
+}

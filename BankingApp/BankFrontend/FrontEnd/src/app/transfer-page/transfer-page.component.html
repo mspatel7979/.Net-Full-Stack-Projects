@@ -1,0 +1,82 @@
+<div class="container py-5">
+    <div class="list">
+      <div class="col-lg-7 mx-auto">
+        <div class="bg-white rounded-lg shadow-sm p-5">
+          <!-- card card form tabs -->
+          <ul role="tablist" class="nav flex-column bg-light nav-pills nav-fill mb-5">
+            <li class="nav-item">
+              <a data-toggle="pill" (click)="toggleMode('card')" class="nav-link  pointer" [ngClass] = "mode === 'card' ? 'active' : ''">
+                Transfer to Card</a>
+            </li>
+            <li class="nav-item">
+              <a data-toggle="pill" (click)="toggleMode('bank')" class="nav-link pointer" [ngClass] = "mode === 'bank' ? 'active' : ''">
+                Transfer to Bank</a>
+            </li>
+          </ul>
+          <!-- End -->
+  
+  
+          <!--  card form content -->
+          <div class="tab-content">
+  
+            <!--  card info-->
+            <div id="nav-tab-card" class="tab-pane fade" [ngClass]="mode === 'card' ? 'show active' : ''" (click)="unselect()">
+              <span *ngIf="transaction">${{transaction}} was moved successfully</span>  
+              <table>
+                  <thead>
+                      <th>Card ID</th>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let i of cards">
+                          <button (click)="select($event, i.id, 'card')" class="btn btn-primary btn-block rounded-pill shadow-sm"><td>{{i.cardNumber | cardTransform}}</td></button>
+                          <td></td>
+                      </tr>
+                  </tbody>
+                </table>
+                <form [formGroup]="cardForm" (ngSubmit)="processCardForm($event)">
+                <div class="form-group" style="padding-bottom: 3ex;">
+                  
+                    <label >Amount</label>
+                    <input type="number" formControlName="cardAmount" placeholder="$0" required class="form-control">
+
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block shadow-sm" *ngIf="selected"> Submit  </button>
+              </form>
+            </div>
+            <!-- End -->
+  
+            <!-- Bank Account Infromation-->
+            <div id="nav-tab-bank" class="tab-pane fade" [ngClass]="mode === 'bank' ? 'show active' : ''" (click)="unselect()">
+              <span *ngIf="transaction">${{transaction}} was moved successfully</span>   
+              <table>
+                    <thead>
+                        <th>Bank ID</th>
+                        <th></th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let i of banks">
+                            <button (click)="select($event, i.id, 'bank')" class="btn btn-primary btn-block rounded-pill shadow-sm"><td>{{i.accountNumber | cardTransform}}</td></button> 
+                            <!-- <td></td> -->
+                        </tr>
+                    </tbody>
+                </table>
+
+                <form [formGroup]="bankForm" (ngSubmit)="processBankForm($event)">
+                
+                    <div class="form-group" style="padding-bottom: 3ex;">
+                        <label >Amount</label>
+                        <input type="number" formControlName="bankAmount" placeholder="$0" required class="form-control">
+    
+                    </div>
+    
+                    <button type="submit" class="btn btn-primary btn-block shadow-sm" *ngIf="selected"> Submit  </button>
+                  </form>
+            <!-- End -->
+          </div>
+          <!-- End -->
+  
+        </div>
+      </div>
+    </div>
+  </div>
